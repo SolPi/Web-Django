@@ -1,0 +1,129 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ site_title }}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico'%}"/>
+	<link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+	<script type="text/javascript" scr="{% static 'js/jquery.min.js' %}"></script>
+	<script type="text/javascript" scr="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" scr="{% static 'js/index.js' %}"></script>
+<!--  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+	<style>
+		/* Note: Try to remove the following lines to see the effect of CSS positioning */
+		.affix {
+		  top: 0;
+		  width: 100%;
+		}
+
+		.affix + .container-fluid {
+		  padding-top: 70px;
+		}
+	</style>
+	<script type="text/javascript">
+		var page = "{{page}}";
+		$( document ).ready(function() {
+			console.log( "ready!" );
+		});	
+		function changePage(li){
+			if(li.id != page){
+				$("#"+page).removeClass("active");
+				li.className = li.className + " active";
+				switch(li.id) {
+				    case 'init':
+				        $("#inicio").show()
+				        break;
+				    case 'cal':
+				        $("#calendario").show()
+				        break;
+				    case 'act':
+				        $("#actividades").show()
+				        break;
+				    case 'soc':
+				        $("#socios").show()
+				        break;
+				    case 'cont':
+				        $("#contacto").show()
+				        break;
+				    case 'new':
+				        $("#new_socio").show()
+			    }
+				switch(page) {
+				    case 'init':
+				        $("#inicio").hide()
+				        break;
+				    case 'cal':
+				        $("#calendario").hide()
+				        break;
+				    case 'act':
+				        $("#actividades").hide()
+				        break;
+				    case 'soc':
+				        $("#socios").hide()
+				        break;
+				    case 'cont':
+				        $("#contacto").hide()
+				        break;
+				    case 'new':
+				        $("#new_socio").hide()
+			    }
+			   page = li.id;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="container-fluid" style="background-color:#C5281C;color:#fff;">
+	  <a class="navbar-brand" href="/lh" style="float: initial;"><img src="{% static 'img/logo.png' %}"></a>
+		<h3>{{ site_motto }}</h3>
+	{% if more_than_five %}
+		<h5 style="text-align: right;">{{site_since}}</h5>
+	{% endif %}
+	</div>
+
+	<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
+	  <div class="navbar-header col-sm-2">
+	    <a class="navbar-brand" href="/lh" >{{ site_title }}</a>
+	  </div>
+	  <ul class="nav navbar-nav col-sm-8">
+	    <li id="init" class=' col-sm-2 pd-sm {% if page == 'init' %} active {% endif %}'><a href="javascript:void(0)" onclick="changePage(this.parentElement)" >Inicio</a></li>
+	    <li id="cal" class=' col-sm-2 pd-sm {% if page == 'cal' %} active {% endif %}'><a href="javascript:void(0)" onclick="changePage(this.parentElement)" >Calendario</a></li>
+	    <li id="act" class=' col-sm-2 pd-sm {% if page == 'act' %} active {% endif %}'><a href="javascript:void(0)" onclick="changePage(this.parentElement)" >Actividades</a></li>
+	    <li id="soc" class=' col-sm-2 pd-sm {% if page == 'soc' %} active {% endif %}'><a href="javascript:void(0)" onclick="changePage(this.parentElement)" >Socios</a></li>
+	    <li id="cont" class=' col-sm-2 pd-sm {% if page == 'cont' %} active {% endif %}'><a href="javascript:void(0)" onclick="changePage(this.parentElement)" >Contacto</a></li>
+	  </ul>
+      <ul class="nav navbar-nav navbar-right col-sm-2" style="margin-right: 0;">
+        <li {% if page == 'new' %} class='active' {% endif %}><a href="javascript:void(0)" onclick="changePage(this.parentElement)"><span class="glyphicons glyphicons-user-add"></span> Hazte Hermano <span class="glyphicons glyphicons-hand-left"></span><span class="glyphicons glyphicons-hand-right"></span></a></li>
+        <li><a href="javascript:void(0)" data-toggle="modal" data-target="#login"><span class="glyphicons glyphicons-user-key"></span> Login </a></li>
+      </ul>
+	</nav>
+
+	<div id="inicio" class="container-fluid" {% if page != 'init' %} style="display:none;" {% endif %}>
+		{% include "inicio.html" %}
+	</div>
+	<div id="calendario" class="container-fluid" {% if page != 'cal' %} style="display:none;" {% endif %}>
+		{% include "calendario.html" %}
+	</div>
+	<div id="actividades" class="container-fluid" {% if page != 'act' %} style="display:none;" {% endif %}>
+		{% include "actividades.html" %}
+	</div>
+	<div id="socios" class="container-fluid" {% if page != 'soc' %} style="display:none;" {% endif %}>
+		{% include "socios.html" %}
+	</div>
+	<div id="contacto" class="container-fluid" {% if page != 'cont' %} style="display:none;" {% endif %}>
+		{% include "contacto.html" %}
+	</div>
+	<div id="new_socio" class="container-fluid" {% if page != 'new' %} style="display:none;" {% endif %}>
+		{% include "new_socio.html" %}
+	</div>
+	<div id="login" class="modal fade" role="dialog">
+		{% include "login.html" %}
+	</div>
+</body>
+</html>

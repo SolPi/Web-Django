@@ -1,0 +1,17 @@
+.form-group label{
+	margin-bottom: auto;
+	margin-top: auto;
+}
+
+.form-group{
+	display: flex;
+}
+
+.pd-sm{
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.modal-content {
+    background-color: rgba(181, 108, 108, 0.94);
+}

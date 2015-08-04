@@ -1,0 +1,5 @@
+[client]
+database = webhermandad
+user = admin
+password = 1234
+default-character-set = utf8
