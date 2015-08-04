@@ -49,10 +49,11 @@ coverage.xml
 
 # Django stuff:
 *.log
-*.cnf
 
 # Sphinx documentation
 docs/_build/
 
 # PyBuilder
 target/
+
+*.cnf
