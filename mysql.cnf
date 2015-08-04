@@ -1,5 +1,5 @@
 [client]
 database = webhermandad
-user = admin
+user = python
 password = 1234
 default-character-set = utf8

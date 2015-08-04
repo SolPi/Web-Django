@@ -40,5 +40,6 @@ function changePage(li){
 		    case 'new':
 		        $("#new_socio").hide()
 	    }
+	   page = li.id;
 	}
 }
