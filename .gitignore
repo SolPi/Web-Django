@@ -49,7 +49,7 @@ coverage.xml
 
 # Django stuff:
 *.log
-mysql.cnf
+*.cnf
 
 # Sphinx documentation
 docs/_build/
