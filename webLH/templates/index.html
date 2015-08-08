@@ -3,77 +3,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{ site_title }}</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico'%}"/>
-	<link rel="stylesheet" href="{% static 'lib/css/bootstrap-theme.min.css' %}">
-	<link rel="stylesheet" href="{% static 'lib/css/bootstrap.min.css' %}">
-	<link rel="stylesheet" href="{% static 'css/index.css' %}">
-	<script type="text/javascript" src="{% static 'lib/js/jquery.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'lib/js/bootstrap.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
-	<style>
-		/* Note: Try to remove the following lines to see the effect of CSS positioning */
-		.affix {
-		  top: 0;
-		  width: 100%;
-		}
-
-		.affix + .container-fluid {
-		  padding-top: 70px;
-		}
-	</style>
-	<script type="text/javascript">
+    <title>{{ site_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico'%}"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+    <script type="text/javascript">
 		var page = "{{page}}";
-	</script>
+
+    </script>
 </head>
 <body>
-	<div class="container-fluid" style="background-color:#C5281C;color:#fff;">
-	  <a class="navbar-brand" href="/lh" style="float: initial;"><img src="{% static 'img/logo.png' %}"></a>
-		<h3>{{ site_motto }}</h3>
-	{% if more_than_five %}
-		<h5 style="text-align: right;">{{site_since}}</h5>
-	{% endif %}
-	</div>
+<div class="container-fluid" style="background-color:#C5281C;color:#fff;">
+    <a class="navbar-brand" href="/lh" style="float: initial;"><img src="{% static 'img/logo.png' %}"></a>
 
-	<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197">
-	  <div class="navbar-header">
-	    <a class="navbar-brand" href="/lh" >{{ site_title }}</a>
-	  </div>
-	  <ul class="nav navbar-nav">
-	    <li id="init" {% if page == 'init' %} class='active' {% endif %}><a href="javascript:void(0)" onclick="changePage(this.parentElement)" >Inicio</a></li>
-	    <li id="cal" {% if page == 'cal' %} class='active' {% endif %}><a href="javascript:void(0)" onclick="changePage(this.parentElement)" >Calendario</a></li>
-	    <li id="act" {% if page == 'act' %} class='active' {% endif %}><a href="javascript:void(0)" onclick="changePage(this.parentElement)" >Actividades</a></li>
-	    <li id="soc" {% if page == 'soc' %} class='active' {% endif %}><a href="javascript:void(0)" onclick="changePage(this.parentElement)" >Socios</a></li>
-	    <li id="cont" {% if page == 'cont' %} class='active' {% endif %}><a href="javascript:void(0)" onclick="changePage(this.parentElement)" >Contacto</a></li>
-	  </ul>
-      <ul class="nav navbar-nav navbar-right" style="margin-right: 0;">
-        <li {% if page == 'new' %} class='active' {% endif %}><a href="javascript:void(0)" onclick="changePage(this.parentElement)"><span class="glyphicons glyphicons-user-add"></span> Hazte Hermano <span class="glyphicons glyphicons-hand-left"></span><span class="glyphicons glyphicons-hand-right"></span></a></li>
-        <li><a href="javascript:void(0)" data-toggle="modal" data-target="#login"><span class="glyphicons glyphicons-user-key"></span> Login </a></li>
-      </ul>
-	</nav>
+    <h3>{{ site_motto }}</h3>
+    {% if more_than_five %}
+    <h5 style="text-align: right;">{{site_since}}</h5>
+    {% endif %}
+</div>
 
-	<div id="inicio" class="container-fluid" {% if page != 'init' %} style="display:none;" {% endif %}>
-		{% include "inicio.html" %}
-	</div>
-	<div id="calendario" class="container-fluid" {% if page != 'cal' %} style="display:none;" {% endif %}>
-		{% include "calendario.html" %}
-	</div>
-	<div id="actividades" class="container-fluid" {% if page != 'act' %} style="display:none;" {% endif %}>
-		{% include "actividades.html" %}
-	</div>
-	<div id="socios" class="container-fluid" {% if page != 'soc' %} style="display:none;" {% endif %}>
-		{% include "socios.html" %}
-	</div>
-	<div id="contacto" class="container-fluid" {% if page != 'cont' %} style="display:none;" {% endif %}>
-		{% include "contacto.html" %}
-	</div>
-	<div id="new_socio" class="container-fluid" {% if page != 'new' %} style="display:none;" {% endif %}>
-		{% include "new_socio.html" %}
-	</div>
-	<div id="login" class="modal fade" role="dialog">
-		{% include "login.html" %}
-	</div>
+<nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="230">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/lh">{{ site_title }}</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li id="inicio" {% if page == 'inicio' %} class='active' {% endif %}><a href="javascript:void(0)" onclick="changePage(this.parentElement)">Inicio</a></li>
+        <li id="actividades" {% if page == 'actividades' %} class='active' {% endif %}><a href="javascript:void(0)" onclick="changePage(this.parentElement)">Actividades</a></li>
+        <li id="socios" {% if page == 'socios' %} class='active' {% endif %}><a href="javascript:void(0)" onclick="changePage(this.parentElement)">Socios</a></li>
+        <li id="contacto" {% if page == 'contacto' %} class='active' {% endif %}><a href="javascript:void(0)" onclick="changePage(this.parentElement)">Contacto</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" style="margin-right: 0;">
+        <li id="new_socio" {% if page == 'new_socio' %} class='active' {% endif %}>
+            <a href="javascript:void(0)" onclick="changePage(this.parentElement)"> Hazte Hermano <span class="glyphicon glyphicon-hand-right"></span>&nbsp;<span class="glyphicon glyphicon-hand-left"></span></a>
+        </li>
+        <li>
+            <a href="javascript:void(0)" data-toggle="modal" data-target="#login">Login <span class="glyphicon glyphicon-hand-up"></span></a>
+        </li>
+    </ul>
+</nav>
+<div class="container-fluid">
+    <div id="div-inicio" {% if page != 'inicio' %} style="display:none;" {% endif %}>
+        {% include "inicio.html" %}
+    </div>
+    <div id="div-actividades" {% if page != 'actividades' %} style="display:none;" {% endif %}>
+        {% include "actividades.html" %}
+    </div>
+    <div id="div-socios" {% if page != 'socios' %} style="display:none;" {% endif %}>
+        {% include "socios.html" %}
+    </div>
+    <div id="div-contacto" {% if page != 'contacto' %} style="display:none;" {% endif %}>
+        {% include "contacto.html" %}
+    </div>
+    <div id="div-new_socio" {% if page != 'new_socio' %} style="display:none;" {% endif %}>
+        {% include "new_socio.html" %}
+    </div>
+    <div id="login" class="modal fade" role="dialog">
+        {% include "login.html" %}
+    </div>
+</div>
 </body>
 </html>

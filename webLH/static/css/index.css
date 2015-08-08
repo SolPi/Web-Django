@@ -5,7 +5,7 @@
 
 .form-group{
 	display: flex;
-}
+}p
 
 .pd-sm{
 	padding-left: 2px;
@@ -14,4 +14,37 @@
 
 .modal-content {
     background-color: rgba(181, 108, 108, 0.94);
+}
+
+.col-xs-1,.col-xs-10,.col-xs-11,.col-xs-12,.col-xs-2,.col-xs-3,.col-xs-4,.col-xs-5,.col-xs-6,.col-xs-7,.col-xs-8,.col-xs-9{
+	float:left;
+	margin-bottom:4px
+}
+
+.form-group{
+	margin-bottom:11px
+}
+
+.form-horizontal .control-label{
+	padding-top:7px;
+	padding-bottom:7px;
+	text-align:right
+}
+
+.affix {
+  top: 0;
+  width: 100%;
+  z-index: 100000;
+}
+
+.affix + .container-fluid {
+  padding-top: 70px;
+}
+
+.image-socio{
+	width: 100%
+}
+
+.fichita-socio{
+	height: 100%;
 }
