@@ -12,7 +12,7 @@ from webLH.models import *
 
 def index(request):
     more_than_five = date.today().year - int(settings.IS_OLD) > int(settings.SITE_SINCE)
-    return render(request, 'index.html', {'page': 'inicio', 'more_than_five': more_than_five})
+    return render(request, 'index.html', {'page': 'new_socio', 'more_than_five': more_than_five})
 
 
 def login(request):
@@ -22,5 +22,21 @@ def login(request):
     except (KeyError, Usuario.DoesNotExist):
         return HttpResponse(json.dumps({'msg': False}), content_type="application/json")
     else:
-        result = user.isPassCorrect(request.POST['psw'])
+        result = user.isPassCorrect(request.POST['pass'])
         return HttpResponse(json.dumps({'msg': result}), content_type="application/json")
+
+
+def registrar(request):
+    mail = request.POST['mail']
+    try:
+        user = Usuario.objects.get(mail=mail)
+    except (KeyError, Usuario.DoesNotExist):
+        psw = request.POST['pass']
+        user = Usuario()
+        user.mail = mail
+        user.psw = psw
+        user.state = 1
+        user.register()
+        return HttpResponse(json.dumps({'msg': 'Usuario registrado'}), content_type="application/json")
+    else:
+        return HttpResponse(json.dumps({'msg': 'Ese email ya existe, cuantas veces te vas a registrar?'}), content_type="application/json")

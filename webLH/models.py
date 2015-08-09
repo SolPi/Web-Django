@@ -12,7 +12,8 @@ class Usuario(models.Model):
     mail = models.CharField(max_length=200)
     psw = models.CharField(max_length=200, null=True, blank=True)
     state = models.IntegerField(default=0)
-    date_last_login = models.DateTimeField('date published')
+    date_last_login = models.DateTimeField('date published', null=True, blank=True)
+    date_alta = models.DateTimeField('date published', null=True, blank=True)
 
     def __str__(self):
         return self.mail.encode('utf-8')
@@ -22,6 +23,7 @@ class Usuario(models.Model):
         super(Usuario, self).save(*args, **kwargs)
 
     def register(self):
+        self.date_alta = date.today()
         self.save()
 
     def login(self, psw=str()):

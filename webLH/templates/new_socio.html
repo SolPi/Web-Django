@@ -1,51 +1,58 @@
-{% block new_socio %}
 <div class="col-sm-8 col-sm-offset-2">
     <h1>Hazte Hermano</h1>
-    <div class="well form-group">
-        <div class="form-horizontal">
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <label class="control-label">Paso 1 de 5</label>
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <div class="col-sm-3">
-                        <label class="control-label">Mail:</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input class="form-control"/>
+    <div class="well form-group" >
+        <form id="form_register" data-toggle="validator">
+			{% csrf_token %}
+            <div class="form-horizontal">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="control-label">Paso 1 de 5</label>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <div class="col-sm-3">
-                        <label class="control-label">Consasenna:</label>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label class="control-label">Mail:</label>
+                        </div>
+                        <div class="col-sm-6 has-feedback">
+                            <input type="email" id="mail_registrar" class="form-control" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <input class="form-control"/>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label class="control-label">Consasenna:</label>
+                        </div>
+                        <div class="col-sm-6 has-feedback">
+                            <input type="password" id="pass_registrar" class="form-control" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label class="control-label">Repite la consasenna:</label>
+                        </div>
+                        <div class="col-sm-6 has-feedback">
+                            <input type="password" id="pass_registrar2" class="form-control" data-match="#pass_registrar" data-match-error="Meeeeca que esas contrasennas son diferentes, ponla bien ;)" required>
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="col-sm-offset-9 col-sm-3">
+                            <button type="submit" class="btn btn-success btn-block" onclick="registrar($('#form_register'))">Continuar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <div class="col-sm-3">
-                        <label class="control-label">Repite la consasenna:</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input class="form-control"/>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12">
-                <div class="form-group">
-                    <div class="col-sm-offset-9 col-sm-3">
-                        <button type="button" class="btn btn-success btn-block">Continuar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
-{% endblock %}
