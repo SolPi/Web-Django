@@ -4,6 +4,6 @@ function changePage(li){
 		li.className = li.className + " active";
 		$("#div-"+li.id).show();
 		$("#div-"+page).hide();
-	   page = li.id;
+		page = li.id;
 	}
 }

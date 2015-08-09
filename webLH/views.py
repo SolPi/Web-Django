@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# coding: utf-8
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -12,14 +12,15 @@ from webLH.models import *
 
 def index(request):
     more_than_five = date.today().year - int(settings.IS_OLD) > int(settings.SITE_SINCE)
-    return render(request, 'index.html', {'page': 'contacto', 'more_than_five': more_than_five})
+    return render(request, 'index.html', {'page': 'inicio', 'more_than_five': more_than_five})
 
 
 def login(request):
     mail = request.POST['mail']
-    user = Hermano.objects.get(mail=mail)
-    if user is not None:
+    try:
+        user = Usuario.objects.get(mail=mail)
+    except (KeyError, Usuario.DoesNotExist):
+        return HttpResponse(json.dumps({'msg': False}), content_type="application/json")
+    else:
         result = user.isPassCorrect(request.POST['psw'])
         return HttpResponse(json.dumps({'msg': result}), content_type="application/json")
-    else:
-        return HttpResponse(json.dumps({'msg': False}), content_type="application/json")

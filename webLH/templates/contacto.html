@@ -1,8 +1,51 @@
 {% block contacto %}
 <div class="col-sm-8 col-sm-offset-2">
     <h1>Contacto</h1>
-    <div class="well">
-
+    <div class="well form-group">
+        <div class="form-horizontal">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label">Nombre:</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label">Email:</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div class="col-sm-2">
+                        <label class="control-label">Asunto:</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 ">
+                <label class="control-label">Mensaje:</label>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <textarea class="form-control vresize"></textarea>
+                </div>
+            </div>
+            <br>
+            <div class="col-sm-offset-9 col-sm-3">
+                <button class="btn btn-success btn-block">Enviar</button>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
