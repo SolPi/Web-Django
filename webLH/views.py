@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 from webLH.models import *
 from webLH.Utils.MailFn import *
-from webLH.context_var import *
+from webLH.context_var import * 
 
 
 # Create your views here.
