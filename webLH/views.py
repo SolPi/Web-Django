@@ -5,6 +5,8 @@ from django.http import HttpResponse
 from django.conf import settings
 
 from webLH.models import *
+from webLH.Utils.MailFn import *
+from webLH.context_var import *
 
 
 # Create your views here.
@@ -35,8 +37,16 @@ def registrar(request):
         user = Usuario()
         user.mail = mail
         user.psw = psw
-        user.state = 1
+        user.state = STATE_REGISTER
         user.register()
+
+        mail = Mail()
+        mail.sendMesagge("garoz.daniel@gmail.com", "confirma tu cuenta", "<a href='http://localhost:8000/lh/confirmar?userId="+user.id+"'>Pulsa para confirmar</a>")
+
         return HttpResponse(json.dumps({'msg': 'Usuario registrado'}), content_type="application/json")
     else:
         return HttpResponse(json.dumps({'msg': 'Ese email ya existe, cuantas veces te vas a registrar?'}), content_type="application/json")
+
+def confirmar(request, userId):
+    user = Usuario.objects.get(id=userId)
+    user.state = STATE_REGISTER_CONFIRM
