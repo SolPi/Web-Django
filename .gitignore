@@ -60,3 +60,4 @@ target/
 *.pyc
 /.project
 /.pydevproject
+/.idea/
