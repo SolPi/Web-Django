@@ -35,6 +35,7 @@ def registrar(request):
         user = Usuario()
         user.mail = mail
         user.psw = psw
+        
         user.state = STATE_REGISTER
         user.register()
 
