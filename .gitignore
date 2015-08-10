@@ -58,3 +58,5 @@ target/
 
 *.cnf
 *.pyc
+/.project
+/.pydevproject
