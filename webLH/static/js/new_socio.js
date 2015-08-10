@@ -1,6 +1,11 @@
 function registrar($form){
     $(this).submit(function(){return false});
-    $form.validator('validate').on('submit', function (e) {
+    $form.validator('validate');
+    var prevented = $form.isDefaultPrevented();
+
+
+
+/*    .on('submit', function (e) {
         var token = $("[name=csrfmiddlewaretoken]", $form).val();
         var mail = $("#mail_registrar").val();
         var pass = $("#pass_registrar").val();
@@ -13,5 +18,5 @@ function registrar($form){
         }).done(function( msg ) {
             alert( msg.msg );
         });
-    });
+    });*/
 }

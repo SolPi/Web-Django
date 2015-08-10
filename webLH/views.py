@@ -2,7 +2,6 @@
 
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.conf import settings
 
 from webLH.models import *
 from webLH.Utils.MailFn import *
@@ -13,8 +12,7 @@ from webLH.context_var import *
 
 
 def index(request):
-    more_than_five = date.today().year - int(settings.IS_OLD) > int(settings.SITE_SINCE)
-    return render(request, 'index.html', {'page': 'new_socio', 'more_than_five': more_than_five})
+    return render(request, 'index.html', {'page': 'new_socio'})
 
 
 def login(request):
@@ -50,3 +48,4 @@ def registrar(request):
 def confirmar(request, userId):
     user = Usuario.objects.get(id=userId)
     user.state = STATE_REGISTER_CONFIRM
+    return render(request, 'index.html', {'page': 'new_socio'})

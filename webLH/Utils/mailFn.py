@@ -5,6 +5,9 @@ class Mail:
     remitente = "lahermandad@gmail.com"
     clave = "festivalAcolor"
 
+    def __init__(self):
+        super(self)
+
     def __init__(self, usuario, clave):
         self.remitente = usuario
         self.clave = clave
