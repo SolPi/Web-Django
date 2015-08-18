@@ -1,165 +1,243 @@
 {% include "calendario.html" %}
-<div class="col-xs-8">
-    <h1>Actividad Destacada</h1>
-    <div class="well">
-        <div class="panel panel-success">
-            <div class="panel-heading">
-                Actividad To Guapa
-            </div>
-            <div class="panel-body">
-                En estaactividad to guapa haremos cosas to guapas
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="col-xs-8">
-    <h1>Actividades</h1>
-    <div class="well">
-        <div class="panel-group">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    Actividad Menos Guapa pero guapa igual
+{% if activity_list %}
+	
+		<div class="col-xs-8">
+			<h1>Actividad Destacada</h1>
+		    <div class="well">
+		    {% for activity in activity_list%}
+		    	{% if activity.priority == 1 %}
+		    		<div class="panel panel-success">
+			            <div class="panel-heading">
+			                {{activity.title}}
+			                <span style="float:right">{{activity.date}}</span>
+			            </div>
+			            <div class="panel-body">
+			                {{activity.desc}}
+			            </div>
+			        </div>
+		    	{% endif %}
+		    {% endfor %}
+		    </div>
+		</div>	
+		    
+		<div class="col-xs-8">
+		    <h1>Actividades</h1>
+		    <div class="well">
+		        <div class="panel-group">
+		        {% for activity in activity_list%}
+		        	{% if activity.priority == 2 %}
+						<div class="panel panel-info">
+			                <div class="panel-heading">
+			                    {{activity.title}}
+			                <span style="float:right">{{activity.date}}</span>
+			                </div>
+			                <div class="panel-body">
+			                    {{activity.desc}}
+			                </div>
+			            </div>
+                    {% endif %}       	
+                {% endfor %}
                 </div>
-                <div class="panel-body">
-                    En esta actividad to guapa haremos cosas to guapas aun que no demasiado
+		    </div>
+		</div>
+
+
+		<div class="col-xs-8">
+		    <h1>Actividades Pasadas</h1>
+		    <div class="well">
+		        <div class="panel-group">
+				{% for activity in activity_list%}
+					{% if activity.priority == 3 %}
+						<div class="panel panel-danger">
+			                <div class="panel-heading">
+			                    {{activity.title}}
+			                <span style="float:right">{{activity.date}}</span>
+			                </div>
+			                <div class="panel-body">
+			                    {{activity.desc}}
+			                </div>
+			            </div>					
+					{% endif %}       	
+                {% endfor %}
                 </div>
-            </div>
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    Actividad Menos Guapa pero guapa igual
-                </div>
-                <div class="panel-body">
-                    En esta actividad to guapa haremos cosas to guapas aun que no demasiado
-                </div>
-            </div>
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    Actividad Menos Guapa pero guapa igual
-                </div>
-                <div class="panel-body">
-                    En esta actividad to guapa haremos cosas to guapas aun que no demasiado
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="col-xs-8">
-    <h1>Actividades Pasadas</h1>
-    <div class="well">
-        <div class="panel-group">
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    Actividad que estuvo guapa pero ya se paso
-                </div>
-                <div class="panel-body">
-                    Se paso, te jodes
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+		    </div>
+		</div>
+	
+{% else %}
+	<div class="col-xs-8">
+	    <h2>No hay Actividades</h2>
+	    <div class="well">
+			<button type="button" class="btn btn-success">Add Activity</button>
+	  </div>
+	</div>
+{% endif %}
+
+<!--	<div class="col-xs-8">
+	    <h1>Actividad Destacada</h1>
+	    <div class="well">
+			<div class="panel panel-success">
+	            <div class="panel-heading">
+	                Actividad to guapa <span style="float:right">la fecha</span>
+	            </div>
+	            <div class="panel-body">
+	                Esta es la actividad tan destacada que esta arriba
+	            </div>
+	        </div>
+		</div>
+	</div>
+	
+	
+	<div class="col-xs-8">
+	    <h1>Actividades</h1>
+	    <div class="well">
+	        <div class="panel-group">
+	            <div class="panel panel-info">
+	                <div class="panel-heading">
+	                    Actividad Menos Guapa pero guapa igual
+	                </div>
+	                <div class="panel-body">
+	                    En esta actividad to guapa haremos cosas to guapas aun que no demasiado
+	                </div>
+	            </div>
+	            <div class="panel panel-info">
+	                <div class="panel-heading">
+	                    Actividad Menos Guapa pero guapa igual
+	                </div>
+	                <div class="panel-body">
+	                    En esta actividad to guapa haremos cosas to guapas aun que no demasiado
+	                </div>
+	            </div>
+	            <div class="panel panel-info">
+	                <div class="panel-heading">
+	                    Actividad Menos Guapa pero guapa igual
+	                </div>
+	                <div class="panel-body">
+	                    En esta actividad to guapa haremos cosas to guapas aun que no demasiado
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	
+	
+	
+	<div class="col-xs-8">
+	    <h1>Actividades Pasadas</h1>
+	    <div class="well">
+	        <div class="panel-group">
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	            <div class="panel panel-danger">
+	                <div class="panel-heading">
+	                    Actividad que estuvo guapa pero ya se paso
+	                </div>
+	                <div class="panel-body">
+	                    Se paso, te jodes
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>-->	

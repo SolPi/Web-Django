@@ -12,7 +12,9 @@ from webLH.context_var import *
 
 
 def index(request):
-    return render(request, 'index.html', {'page': 'new_socio'})
+    activity_list = Actividade.objects.order_by('-date')[:]
+   # context = {'activity_list':activity_list}
+    return render(request, 'index.html', {'page': 'actividades', 'activity_list':activity_list})
 
 
 def login(request):
@@ -50,3 +52,8 @@ def confirmar(request, userId):
     user = Usuario.objects.get(id=userId)
     user.state = STATE_REGISTER_CONFIRM
     return render(request, 'index.html', {'page': 'new_socio'})
+
+def activities(request):
+    activity_list = Actividade.objects.order_by('-date')[:]
+    context = {'activity_list':activity_list}
+    return render(request, 'actividades.html', context)
