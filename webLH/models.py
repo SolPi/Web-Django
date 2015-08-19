@@ -4,7 +4,7 @@ import json
 
 from django.db import models
 
-from Utils.StringFn import *
+from Utils.StringFn import cryptoSHA256
 
 
 # Create your models here.
