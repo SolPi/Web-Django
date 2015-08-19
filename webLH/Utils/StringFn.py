@@ -1,5 +1,6 @@
-from Crypto.Hash import SHA256
 import hashlib, binascii
+
+from Crypto.Hash import SHA256
 
 
 def cryptoSHA256(strNoCrypto):

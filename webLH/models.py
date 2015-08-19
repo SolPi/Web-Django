@@ -1,8 +1,10 @@
 # coding:utf8
-from Utils.StringFn import *
 from datetime import date
-from django.db import models
 import json
+
+from django.db import models
+
+from Utils.StringFn import *
 
 
 # Create your models here.
