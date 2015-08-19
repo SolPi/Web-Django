@@ -1,10 +1,8 @@
 # coding:utf8
-import json
-from datetime import date
-
-from django.db import models
-
 from Utils.StringFn import *
+from datetime import date
+from django.db import models
+import json
 
 
 # Create your models here.
@@ -94,26 +92,26 @@ class Actividade(models.Model):
     title = models.CharField(max_length=100, null=True, blank=True)
     desc = models.CharField(max_length=2000, null=True, blank=True)
     date = models.DateTimeField('date published', null=True, blank=True)
-    priority = models.IntegerField(default=2) #1: PRIORITY_ACTIVITY_HIGHLIGHT, 2: PRIORITY_ACTIVITY_NORMAL, 3: PRIORITY_ACTIVITY_OLD
-    urlInPage = models.CharField(max_length=300, null=True, blank=True)#la url donde se vera en detalle?
+    priority = models.IntegerField(default=2)  # 1: PRIORITY_ACTIVITY_HIGHLIGHT, 2: PRIORITY_ACTIVITY_NORMAL, 3: PRIORITY_ACTIVITY_OLD
+    urlInPage = models.CharField(max_length=300, null=True, blank=True)  # la url donde se vera en detalle?
     
 
     def __str__(self):
-        return "-titulo actividad: " +self.title.encode('utf-8') + "-----fecha: " 
+        return "-titulo actividad: " + self.title.encode('utf-8') + "-----fecha: " 
 
 class Photo(models.Model):
     actividad = models.ForeignKey(Actividade, null=True, blank=True)
     user = models.ForeignKey(Hermano, null=True, blank=True)
-    urlBigPhoto = models.CharField(max_length=300, null=True, blank=True) # url foto peq
-    urlSmallPhoto = models.CharField(max_length=300, null=True, blank=True) # rul foto grande
-    isPagPpal = models.IntegerField(default=0) # 1: true 0: false
+    urlBigPhoto = models.CharField(max_length=300, null=True, blank=True)  # url foto peq
+    urlSmallPhoto = models.CharField(max_length=300, null=True, blank=True)  # rul foto grande
+    isPagPpal = models.IntegerField(default=0)  # 1: true 0: false
     isForActivity = models.IntegerField(default=0)
-    isForHermano  = models.IntegerField(default=0)
+    isForHermano = models.IntegerField(default=0)
     isForTitle = models.IntegerField(default=0)
     isForDescription = models.IntegerField(default=0)
     isforColumn = models.IntegerField(default=0)
-    priority = models.IntegerField(default=1) #(Prioridad 1 max). Si coincide, la más reciente(por fecha)
+    priority = models.IntegerField(default=1)  # (Prioridad 1 max). Si coincide, la más reciente(por fecha)
     date = models.DateTimeField('date published', null=True, blank=True)
 
     def __str__(self):
-        return " Pagina ppal:" + self.isPagPpal + " Pagina activity:" + self.isForActivity + " Es para Hermano:" + self.isForHermano + " URL photo :" +self.urlBigPhoto
+        return " Pagina ppal:" + self.isPagPpal + " Pagina activity:" + self.isForActivity + " Es para Hermano:" + self.isForHermano + " URL photo :" + self.urlBigPhoto

@@ -1,6 +1,7 @@
 from email.mime.text import MIMEText
 from smtplib import SMTP
 
+
 class Mail:
     remitente = "lahermandad@gmail.com"
     clave = "festivalAcolor"

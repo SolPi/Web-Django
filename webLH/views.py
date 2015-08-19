@@ -1,16 +1,13 @@
 # coding: utf-8
 
-from django.shortcuts import render
 from django.http import HttpResponse
-
-from webLH.models import *
+from django.shortcuts import render
 from webLH.Utils.MailFn import *
 from webLH.context_var import * 
+from webLH.models import *
 
 
 # Create your views here.
-
-
 def index(request):
     activity_list = Actividade.objects.order_by('-date')[:]
    # context = {'activity_list':activity_list}
@@ -42,7 +39,7 @@ def registrar(request):
         user.register()
 
         mail = Mail()
-        mail.sendMesagge("garoz.daniel@gmail.com", "confirma tu cuenta", "<a href='http://localhost:8000/lh/confirmar?userId="+user.id+"'>Pulsa para confirmar</a>")
+        mail.sendMesagge("garoz.daniel@gmail.com", "confirma tu cuenta", "<a href='http://localhost:8000/lh/confirmar?userId=" + user.id + "'>Pulsa para confirmar</a>")
 
         return HttpResponse(json.dumps({'msg': 'Usuario registrado'}), content_type="application/json")
     else:

@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import *
 
 
@@ -8,4 +9,4 @@ class UserForm(forms.ModelForm):
         widgets = {
             'psw': forms.PasswordInput(render_value=False),
         }
-        fields ="__all__"
+        fields = "__all__"

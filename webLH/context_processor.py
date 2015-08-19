@@ -1,6 +1,6 @@
 # coding:utf8
-from django.conf import settings
 from datetime import date
+from django.conf import settings
 
 
 def SiteInfo(request):
